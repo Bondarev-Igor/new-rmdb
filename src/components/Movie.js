@@ -17,6 +17,7 @@ const Movie = () => {
   const { movieId } = useParams();
 
   const { state: movie, loading, error } = useMovieFetch(movieId);
+  console.log(movie);
 
   if (loading) return <Spinner />;
   if (error) return <div>Something went wrong...</div>;
@@ -26,7 +27,7 @@ const Movie = () => {
       <BreadCrumb movieTitle={movie.original_title} />
       <MovieInfo movie={movie} />
       <MovieInfoBar
-        time={movie.time}
+        time={movie.runtime}
         budget={movie.budget}
         revenue={movie.revenue}
       />
